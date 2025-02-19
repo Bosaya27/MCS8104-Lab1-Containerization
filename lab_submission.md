@@ -6,7 +6,6 @@ Use the `customized-ubuntu:1.0` image to create a container named `dbserver-mysq
 
 ```dockerfile
 Specify your commands here
-```
 # Build the image
 docker build -t customized-ubuntu:1.0 images/ubuntu
 
@@ -15,12 +14,11 @@ docker run -d --name dbserver-mysql-nairobi -p 3309:3306 customized-ubuntu:1.0 t
 
 # Verify running container
 docker ps
-
+```
 ## 2. MySQL Server and MySQL Client Installation in Ubuntu
 
 ```shell
 Specify your commands here
-```
 # Access the container
 docker exec -it dbserver-mysql-nairobi bash
 
@@ -32,22 +30,23 @@ apt-get install -y mysql-server mysql-client
 
 # Start MySQL service
 service mysql start
+```
+
 
 ## 3. Login using the MySQL Client and Change the MySQL Root Password
 
-```sql
+```shell
 Specify your commands here
-```
+# Log in to MySQL
+mysql -u root -p
 
 # Log in to MySQL
 mysql -u root -p
-```
 
-Inside the MySQL shell, run:
+# Inside the MySQL shell, run:
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '5trathmore';
 FLUSH PRIVILEGES;
-EXIT;
-```
+
 # Commit the container state
 docker commit dbserver-mysql-nairobi dbserver-mysql-nairobi
 
@@ -63,6 +62,10 @@ service mysql start
 
 # Connect to MySQL
 mysql -u root -p
+```
+
+
+
 
 
 
